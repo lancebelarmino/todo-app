@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>todo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Raleway:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./main.css">
+</head>
+<body>
+  <section class="header">
+    <div class="container">
+      <h1 class="header__title">#todo</h1>
+    </div>
+  </section>
+
+  <section class="task">
+    <div class="container">
+      <div class="tab">
+        <ul class="tab__list">
+          <li class="tab__item">
+            <a class="tab__link tab__link--active" data-tab="all">All</a>
+          </li>
+          <li class="tab__item">
+            <a class="tab__link" data-tab="active">Active</a>
+          </li>
+          <li class="tab__item">
+            <a class="tab__link" data-tab="completed">Completed</a>
+          </li>
+        </ul>
+
+        <hr class="tab__line">
+      </div>
+      
+      <div class="add-task">
+        <div class="add-task__input">
+          <input class="add-task__form-control js-todoInput" type="text" placeholder="add details">
+        </div>
+  
+        <button class="btn btn__add-task js-addBtn">Add</button>
+      </div>
+  
+      <div class="task-group js-taskGroup">
+        <ul class="task-list" data-tab="all"></ul>
+        <ul class="task-list" data-tab="active"></ul>
+        <ul class="task-list" data-tab="completed"></ul>
+
+        <button class="btn btn__delete-all">
+          <span class="delete-all__icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="15" fill="none" xmlns:v="https://vecta.io/nano">
+              <path d="M1 3.6h1.333m0 0H13m-10.667 0v9.1c0 .345.14.675.391.919a1.35 1.35 0 0 0 .943.381h6.667a1.35 1.35 0 0 0 .943-.381c.25-.244.391-.574.391-.919V3.6H2.333zm2 0V2.3c0-.345.14-.675.391-.919A1.35 1.35 0 0 1 5.667 1h2.667a1.35 1.35 0 0 1 .943.381c.25.244.391.574.391.919v1.3m-4 3.25v3.9m2.667-3.9v3.9" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+  
+          delete all
+        </button>
+      </div>
+    </div>    
+  </section>
+
+  <script src="./index.js"></script>
+</body>
+</html>

@@ -1,0 +1,321 @@
+/********************
+  VARIABLES
+********************/
+
+:root {
+  --c-blue: #2F80ED;
+  --c-red: #EB5757;
+  --c-gray: #BDBDBD;
+  --c-black: #333333;
+  --c-white: #ffff;
+}
+
+
+
+/********************
+  RESETS 
+********************/
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default padding */
+ul[class],
+ol[class] {
+  padding: 0;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul[class],
+ol[class],
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Set core body defaults */
+body {
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
+}
+
+/* Remove list styles on ul, ol elements with a class attribute */
+ul[class],
+ol[class],
+li[class] {
+  list-style: none;
+}
+
+/* A elements that don't have a class get default styles */
+a {
+  text-decoration: none;
+}
+
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations and transitions for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Remove hr default margins */
+hr {
+  margin: 0;
+}
+
+/* Prevent svg from being targeted in js events */
+svg {
+  pointer-events: none;
+}
+
+
+
+/********************
+  BASE
+********************/
+
+body {
+  font-family: 'Montserrat', sans-serif;
+}
+
+h1 {
+  font-family: 'Raleway', sans-serif;
+  font-size: 2.25rem;
+  font-weight: 700;
+}
+
+
+
+/********************
+  COMPONENTS 
+********************/
+
+.btn {
+  display: inline-block;
+  padding: 0;
+  border: 0;
+  outline: none;
+  background: none;
+  cursor: pointer;
+}
+
+
+
+/********************
+  LAYOUT
+********************/
+
+/*** GLOBAL ***/
+.container {
+  position: relative;
+  width: 608px;
+  margin: 0 auto;
+}
+
+/*** TASKS  ***/
+.header {
+  padding-top: 2rem;
+  margin-bottom: 3.5rem;
+  text-align: center;
+}
+
+.tab {
+  margin-bottom: 1.125rem;
+}
+
+.tab__list {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 40px;
+}
+
+.tab__item {
+  position: relative;
+  text-align: center;
+  height: 100%;
+  width: 100%;
+}
+
+.tab__link {
+  font-size: .875rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.tab__link--active::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90px;
+  height: 4px;
+  border-radius: 4px 4px 0px 0px;
+  background: var(--c-blue);
+}
+
+.add-task {
+  display: flex;
+  margin-bottom: 1.75rem;
+}
+
+.add-task__input {
+  width: 100%;
+  margin-right: 1.625rem;
+}
+
+.add-task__form-control {
+  width: inherit;
+  padding: 1.25rem 0 1.25rem .75rem;
+  border: 1px solid var(--c-gray);
+  border-radius: 12px;
+  background: none;
+  outline: none;
+}
+
+.btn__add-task {
+  padding: 1.25rem 2.5rem;
+  border-radius: 12px;
+  background: var(--c-blue);
+  color: var(--c-white);
+  box-shadow: 0px 2px 6px rgba(127, 177, 243, 0.4);
+}
+
+.task-list:not(:last-of-type) {
+  margin-bottom: 1.5rem;
+}
+
+.task-list:last-of-type {
+  margin-bottom: 32px;
+}
+
+.task-list__item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.task-list__item:not(:last-of-type) {
+  /* background: red; */
+  margin-bottom: 1.5rem;
+}
+
+.task-list__content {
+  display: flex;
+  align-items: center;
+}
+
+.checkbox {
+  position: relative;
+  width: 24px;
+  height: 24px;
+  margin-right: .5rem;
+}
+
+.task-list__checkbox {
+  position: absolute;
+  top: 0;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}
+
+.btn__checkbox {
+  position: relative;
+  z-index: 1000;
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  border: 1px solid #828282;
+  border-radius: 4px;
+  transition: all 500ms ease-in-out;
+}
+
+.btn__checkbox:hover {
+  border: #fff;
+  background: #4690F4;
+}
+
+.btn__checkbox svg {
+  transition: stroke 300ms ease;
+}
+
+.btn__checkbox:hover svg {
+  stroke: var(--c-white);
+}
+
+.checked {
+  border: none;
+  background: var(--c-blue);
+}
+
+.checked svg {
+  stroke: var(--c-white);
+}
+
+.task-list__detail--completed {
+  text-decoration: line-through;
+}
+
+.btn__delete svg {
+  display: none;
+  stroke: var(--c-gray);
+}
+
+.btn__delete--visible svg {
+  display: block;
+}
+
+.btn__delete-all {
+  position: absolute;
+  right: 0;
+  display: flex;
+  align-items: center;
+  padding: .75rem 1.625rem;
+  background: var(--c-red);
+  color: var(--c-white);
+  font-size: 12px;
+}
+
+.delete-all__icon svg {
+  display: block;
+  margin-right: 6px;
+  stroke: var(--c-white);
+}
