@@ -194,6 +194,10 @@ h1 {
   margin-bottom: 1.75rem;
 }
 
+.add-task--hidden {
+  display: none;
+}
+
 .add-task__input {
   width: 100%;
   margin-right: 1.625rem;
@@ -306,12 +310,16 @@ h1 {
 .btn__delete-all {
   position: absolute;
   right: 0;
-  display: flex;
-  align-items: center;
+  display: none;
   padding: .75rem 1.625rem;
   background: var(--c-red);
   color: var(--c-white);
   font-size: 12px;
+}
+
+.btn__delete-all--visible {
+  display: flex;
+  align-items: center;
 }
 
 .delete-all__icon svg {
